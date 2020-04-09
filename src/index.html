@@ -8,23 +8,38 @@
     />
     <title>前航-前端导航网站</title>
     <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+      .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
     <header class="globalHeader">
-      <input type="text" />
-      <button>搜索</button>
+      <form class="searchForm" method="get" action="https://www.baidu.com/s">
+        <input name="wd" type="text" />
+        <button type="submit">搜索</button>
+      </form>
     </header>
     <main class="globalMain">
       <ul class="siteList">
         <li>
-          <div class="site">
-            <div class="logo">A</div>
-            <div class="link">acfun.cn</div>
-          </div>
+          <a href="//www.acfun.cn">
+            <div class="site">
+              <div class="logo">A</div>
+              <div class="link">acfun.cn</div>
+            </div>
+          </a>
         </li>
         <li>
           <div class="site">
-            <div class="logo"></div>
+            <div class="logo">
+              <img src="./images/bilibili.png" alt="bilibili" />
+            </div>
             <div class="link">bilibili.com</div>
           </div>
         </li>
@@ -35,10 +50,19 @@
           </div>
         </li>
         <li>
-          <div class="addButton">新增网站</div>
+          <div class="addButton">
+            <div class="icon-wrapper">
+              <svg class="icon">
+                <use xlink:href="#icon-jia"></use>
+              </svg>
+            </div>
+            <div class="text">新增网站</div>
+          </div>
         </li>
       </ul>
     </main>
+    <script src="//at.alicdn.com/t/font_1743055_w2f5zywimo9.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
