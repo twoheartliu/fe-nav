@@ -7,15 +7,21 @@ const objectInfo = JSON.parse(localInfo);
 const hashMap = objectInfo || [
   {
     logo: 'A',
-    logoType: 'text',
     url: 'http://www.acfun.cn',
   },
   {
-    logo: './images/bilibili.png',
-    logoType: 'image',
+    logo: 'B',
     url: 'http://www.bilibili.com',
   },
 ];
+const simplifyUrl = (url) => {
+  return url
+    .replace('https://', '')
+    .replace('http://', '')
+    .replace('www.', '')
+    .replace(/\/.*/, '');
+};
+
 const render = () => {
   $('.siteList').find('li:not(.last)').remove();
   hashMap.forEach((node) => {
@@ -23,7 +29,7 @@ const render = () => {
     <a href=${node.url}>
       <div class="site">
         <div class="logo">${node.logo[0]}</div>
-        <div class="link">${node.url}</div>
+        <div class="link">${simplifyUrl(node.url)}</div>
       </div>
     </a>
   </li>`).insertBefore($lastLi);
@@ -37,7 +43,7 @@ $('.addButton').on('click', () => {
     url = 'http://' + url;
   }
   hashMap.push({
-    logo: url[0],
+    logo: simplifyUrl(url)[0],
     logoType: 'text',
     url,
   });
