@@ -172,21 +172,23 @@ window.onbeforeunload = function () {
   localStorage.setItem('localInfo', string);
 };
 
+var inputStatus = false;
 $(document).on('keypress', function (e) {
   var key = e.key;
 
   for (var i = 0; i < hashMap.length; i++) {
     var c = hashMap[i];
 
-    if (c.logo.toLowerCase() === key) {
+    if (c.logo.toLowerCase() === key && !inputStatus) {
       window.open(c.url);
     }
   }
 });
 $('.globalHeader input').focus(function () {
-  $(document).on('keypress', function (e) {
-    return false;
-  });
+  inputStatus = true;
+});
+$('.globalHeader input').blur(function () {
+  inputStatus = false;
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.0cd7313f.js.map
+//# sourceMappingURL=main.20becc3e.js.map

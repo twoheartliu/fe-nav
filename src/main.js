@@ -69,18 +69,21 @@ window.onbeforeunload = () => {
   localStorage.setItem('localInfo', string);
 };
 
+let inputStatus = false;
+
 $(document).on('keypress', (e) => {
   const { key } = e;
   for (let i = 0; i < hashMap.length; i++) {
     let c = hashMap[i];
-    if (c.logo.toLowerCase() === key) {
+    if (c.logo.toLowerCase() === key && !inputStatus) {
       window.open(c.url);
     }
   }
 });
 
 $('.globalHeader input').focus(() => {
-  $(document).on('keypress', (e) => {
-    return false;
-  });
+  inputStatus = true;
+});
+$('.globalHeader input').blur(() => {
+  inputStatus = false;
 });
