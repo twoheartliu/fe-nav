@@ -78,3 +78,9 @@ $(document).on('keypress', (e) => {
     }
   }
 });
+
+$('.globalHeader input').focus(() => {
+  $(document).on('keypress', (e) => {
+    return false;
+  });
+});

@@ -183,5 +183,10 @@ $(document).on('keypress', function (e) {
     }
   }
 });
+$('.globalHeader input').focus(function () {
+  $(document).on('keypress', function (e) {
+    return false;
+  });
+});
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.0ebcc7ed.js.map
+//# sourceMappingURL=main.0cd7313f.js.map
